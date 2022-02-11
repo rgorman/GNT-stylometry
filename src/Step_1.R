@@ -40,6 +40,9 @@ for (i in seq_along(files.v)) { #loop through dir
   z <- z %>%  
     gsub('[0-9]+', "", .) # remove reference numbers from object y
   
+  z <- z %>%
+    paste0(collapse = " ") # transform vector so that it contains a single element; this will help avoid sentence numbering errors in parser
+  
   
   parsed <- udpipe_annotate(udmodel, z) # process Greek text through parser
   parsed.df <- as.data.frame(parsed, detailed = TRUE) # convert output to data frame format
@@ -61,17 +64,6 @@ for (i in seq_along(files.v)) { #loop through dir
 ### Note: set i to 1 and walk through each step within the loop. When you have created parsed.df, click to the right of its name in the environment window.
 # That way you can see what the results of the parser look like.
 
-i <- 5
-write_tsv(z, file = "exam-1.txt")
-z[1:10]
 
-z[1:2] %>%
-  gsub("\r\n", "", .)
- which(z == "")
- 
- zz <- z %>%
-   paste0(collapse = " ")
 
- parsed <- udpipe_annotate(udmodel, zz) # process Greek text through parser
- parsed.df <- as.data.frame(parsed, detailed = TRUE) # convert output to data frame format
  
