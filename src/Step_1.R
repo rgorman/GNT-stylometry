@@ -63,7 +63,3 @@ for (i in seq_along(files.v)) { #loop through dir
 
 ### Note: set i to 1 and walk through each step within the loop. When you have created parsed.df, click to the right of its name in the environment window.
 # That way you can see what the results of the parser look like.
-
-
-
- 
